@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="pull-right">
-                    <h5><a href="{{feed.link}}">Go To Original Post</a></h5>
+                    <h5><a href="{{feed.link}}" target="_blank">Go To Original Post</a></h5>
                 </div>
 
                 <div class="clearfix"></div>
@@ -68,7 +68,10 @@
         <div class="modal-body" style="overflow: auto">
             <div class="container-fluid">
                 <div class="row-fluid">
-                    <!--<p>{{feed.content}}</p>-->
+                    {{feed.publishedDate}} <br/>
+                    Posted by: <strong>{{feed.author}}</strong> <br/>
+                    Categories: <strong>{{feed.categories.join(', ')}}</strong> <br/>
+
                     <div encode-as-html="feed.content"></div>
                 </div>
             </div>
