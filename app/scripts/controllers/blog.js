@@ -10,6 +10,7 @@
 angular.module('jftblogApp')
     .controller("BlogCtrl", ['$scope', '$modal', '$log', 'feedService', function ($scope, $modal, $log, feed) {
         $scope.loadFeed = function (feedUrl) {
+            $scope.filterText = '';
             feed.parseFeed(feedUrl).then(function (res) {
                 $scope.feeds = res.data.responseData.feed.entries;
             });
