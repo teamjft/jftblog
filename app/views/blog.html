@@ -22,7 +22,7 @@
         <div class="input-prepend" ng-show="feeds.length > 0">
             <span class="add-on">
                 <i class="glyphicon glyphicon-search"></i>
-                <input class="span12" type="text" placeholder="Search" data-ng-model="filterText"/>
+                <input class="input-sm" type="text" placeholder="Search" data-ng-model="filterText"/>
             </span>
 
             <span class="badge progress-bar-info pull-right" ng-show="feeds.length > 0">
@@ -32,11 +32,49 @@
 
         <ul class="list-unstyled">
             <li ng-repeat="feed in feeds | filter:filterText">
-                <h5><a href="{{feed.link}}">{{feed.title}}</a></h5>
+                <div class="pull-left">
+                    <h5><a href ng-click="readFullBlog('lg', feed)">{{feed.title}}</a></h5>
+                </div>
+
+                <div class="pull-right">
+                    <h5><a href="{{feed.link}}">Go To Original Post</a></h5>
+                </div>
+
+                <div class="clearfix"></div>
 
                 <p class="text-left">{{feed.contentSnippet}}</p>
-                <span class="small">{{feed.publishedDate}}</span>
+
+                <div class="small">
+                    <div class="pull-left">
+                        <strong>{{feed.author}}</strong>
+                    </div>
+
+                    <div class="pull-right">
+                        {{feed.categories.join(', ')}} <br/> {{feed.publishedDate}}
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
             </li>
         </ul>
     </div>
+
+    <script type="text/ng-template" id="fullBlog.html">
+        <div class="modal-header">
+            <h3 class="modal-title">
+                {{feed.title}}
+            </h3>
+        </div>
+        <div class="modal-body" style="overflow: auto">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <!--<p>{{feed.content}}</p>-->
+                    <div encode-as-html="feed.content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="cancel()">Close</button>
+        </div>
+    </script>
 </div>
