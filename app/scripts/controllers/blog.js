@@ -9,13 +9,25 @@
  */
 angular.module('jftblogApp')
     .controller("BlogCtrl", ['$scope', 'FeedService', function ($scope, Feed) {
-        $scope.loadButonText = "Load";
-        $scope.loadFeed = function (e) {
-            Feed.parseFeed($scope.feedSrc).then(function (res) {
-                $scope.loadButonText = angular.element(e.target).text();
+        $scope.loadFeed = function (feedUrl) {
+            Feed.parseFeed(feedUrl).then(function (res) {
                 $scope.feeds = res.data.responseData.feed.entries;
             });
-        }
+        };
+
+        $scope.blogCategories = [
+            {name: 'AngularJS', slug: 'angularjs'},
+            {name: 'Database', slug: 'database'},
+            {name: 'Embedded', slug: 'embedded'},
+            {name: 'Grails', slug: 'grails'},
+            {name: 'Groovy', slug: 'groovy-2'},
+            {name: 'Hibernate', slug: 'hibernate'},
+            {name: 'Jasper', slug: 'jasper'},
+            {name: 'MongoDB', slug: 'mongodb'},
+            {name: 'OAuth', slug: 'oauth-2'},
+            {name: 'Spring', slug: 'spring'},
+            {name: 'Struts2', slug: 'struts2'}
+        ];
     }])
     .factory('FeedService', ['$http', function ($http) {
         return {
