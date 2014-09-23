@@ -24,7 +24,7 @@ angular.module('jftblogApp')
             {name: 'Hibernate', slug: 'hibernate'},
             {name: 'Jasper', slug: 'jasper'},
             {name: 'Java', slug: 'java'},
-            {name: 'Linux', slug: 'java'},
+            {name: 'Linux', slug: 'linux'},
             {name: 'MongoDB', slug: 'mongodb'},
             {name: 'Node.js', slug: 'node-js'},
             {name: 'OAuth', slug: 'oauth-2'},
