@@ -34,7 +34,21 @@ angular.module('jftblogApp')
         ];
 
         $scope.authors = [
+            {name: 'Abdullah Qayuum', slug: 'abdullah'},
+            {name: 'Aman Goel', slug: 'aman'},
+            {name: 'Amit Anand', slug: 'amit'},
+            {name: 'Amit Pandey', slug: 'apandey'},
+            {name: 'Anand Kushwaha', slug: 'anand'},
+            {name: 'Gaurav Chauhan', slug: 'gchauhan'},
+            {name: 'Komal Gulati', slug: 'komal'},
             {name: 'Manish Bharti', slug: 'manish'},
+            {name: 'Mridul Pandey', slug: 'mridul'},
+            {name: 'Neeraj Bhatt', slug: 'neeraj'},
+            {name: 'Prabhat Singh', slug: 'prabhat'},
+            {name: 'Prashant Gupta', slug: 'pgupta'},
+            {name: 'Praveen Kumar', slug: 'praveen'},
+            {name: 'Tinku Saini', slug: 'tinku'},
+            {name: 'Vivek Sadh', slug: 'vsadh'},
             {name: 'Vivek Yadav', slug: 'vivek'}
         ];
     });
