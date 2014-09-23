@@ -10,30 +10,32 @@
         </span>
     </div>
 
-    <ul class="list-unstyled">
+    <ul class="list-unstyled" style="margin-top: 20px">
         <li ng-repeat="feed in feeds | filter:filterText">
-            <div class="pull-left">
-                <h5><a href ng-click="readFullBlog('lg', feed)">{{feed.title}}</a></h5>
-            </div>
-
-            <div class="pull-right">
-                <h5><a href="{{feed.link}}" target="_blank">Go To Original Post</a></h5>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <p class="text-left">{{feed.contentSnippet}}</p>
-
-            <div class="small">
+            <div class="well">
                 <div class="pull-left">
-                    <strong>{{feed.author}}</strong>
+                    <h4><a href ng-click="readFullBlog('lg', feed)">{{feed.title}}</a></h4>
                 </div>
 
                 <div class="pull-right">
-                    {{feed.categories.join(', ')}} <br/> {{feed.publishedDate}}
+                    <h6><a href="{{feed.link}}" target="_blank">Go To Original Post</a></h6>
                 </div>
 
                 <div class="clearfix"></div>
+
+                <p class="text-left">{{feed.contentSnippet}}</p>
+
+                <div class="small">
+                    <div class="pull-left">
+                        <strong>{{feed.author}}</strong>
+                    </div>
+
+                    <div class="pull-right">
+                        {{feed.categories.join(', ')}} <br/> {{feed.publishedDate}}
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </li>
     </ul>
