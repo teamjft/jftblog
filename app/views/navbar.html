@@ -1,5 +1,39 @@
-<ul class="nav nav-pills pull-right">
-    <li ng-class="{ active: isActiveTab('/')}"><a ng-href="/#/">Home</a></li>
-    <li ng-class="{ active: isActiveTab('/blog')}"><a ng-href="/#/blog">Blog</a></li>
-</ul>
-<h3 class="text-muted">JFT Blog</h3>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/#/">JFT Blog</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li ng-class="{ active: isActiveTab('/recentBlog')}">
+                    <a href="/#/recentBlog">Recent Blog</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Categories<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-class="{ active: isActiveTab('/recentBlog/category/{{category.slug}}')}" ng-repeat="category in blogCategories">
+                            <a href="/#/recentBlog/category/{{category.slug}}">
+                                <span ng-bind="category.name"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Authors<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-class="{ active: isActiveTab('/recentBlog/author/{{author.slug}}')}" ng-repeat="author in authors">
+                            <a href="/#/recentBlog/author/{{author.slug}}">
+                                <span ng-bind="author.name"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

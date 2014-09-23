@@ -1,0 +1,62 @@
+<div class="container-fluid" data-ng-controller="RecentBlogCtrl">
+    <div class="input-prepend" ng-show="feeds.length > 0">
+        <span class="add-on">
+            <i class="glyphicon glyphicon-search"></i>
+            <input class="input-sm" type="text" placeholder="Search" data-ng-model="filterText"/>
+        </span>
+
+        <span class="badge progress-bar-info pull-right" ng-show="feeds.length > 0">
+            {{(feeds | filter:filterText).length}} Items
+        </span>
+    </div>
+
+    <ul class="list-unstyled">
+        <li ng-repeat="feed in feeds | filter:filterText">
+            <div class="pull-left">
+                <h5><a href ng-click="readFullBlog('lg', feed)">{{feed.title}}</a></h5>
+            </div>
+
+            <div class="pull-right">
+                <h5><a href="{{feed.link}}" target="_blank">Go To Original Post</a></h5>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <p class="text-left">{{feed.contentSnippet}}</p>
+
+            <div class="small">
+                <div class="pull-left">
+                    <strong>{{feed.author}}</strong>
+                </div>
+
+                <div class="pull-right">
+                    {{feed.categories.join(', ')}} <br/> {{feed.publishedDate}}
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </li>
+    </ul>
+
+    <script type="text/ng-template" id="fullBlog.html">
+        <div class="modal-header">
+            <h3 class="modal-title">
+                {{feed.title}}
+            </h3>
+        </div>
+        <div class="modal-body" style="overflow: auto">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    {{feed.publishedDate}} <br/>
+                    Posted by: <strong>{{feed.author}}</strong> <br/>
+                    Categories: <strong>{{feed.categories.join(', ')}}</strong> <br/>
+
+                    <div encode-as-html="feed.content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="cancel()">Close</button>
+        </div>
+    </script>
+</div>

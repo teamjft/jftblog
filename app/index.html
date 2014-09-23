@@ -23,9 +23,7 @@
 
 <!-- Add your site or application content here -->
 <div class="container">
-    <div class="header">
-        <div ng-include="'views/navbar.html'" ng-controller="NavbarCtrl"></div>
-    </div>
+    <div ng-include="'views/navbar.html'" ng-controller="NavbarCtrl"></div>
 
     <div ng-view></div>
 
@@ -82,6 +80,7 @@
 <script src="scripts/controllers/navbar.js"></script>
 <script src="scripts/services/feedReader.js"></script>
 <script src="scripts/directives/encodeAsHtml.js"></script>
+<script src="scripts/controllers/recentblog.js"></script>
 <!-- endbuild -->
 </body>
 </html>
